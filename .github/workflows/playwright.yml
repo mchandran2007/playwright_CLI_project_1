@@ -57,7 +57,9 @@ jobs:
       - name: 🎭 Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      
+      - name: ⚙️ Create .env File            
+        run: Copy-Item -LiteralPath ".env" -Destination "-copy.env" -Force
+
       - name: 🧪 Run Playwright Tests
         run: |
           $suite = "${{ github.event.inputs.test_suite || 'test:e2e' }}"
