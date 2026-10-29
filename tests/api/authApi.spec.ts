@@ -15,7 +15,7 @@ test.describe("FakeStore Authentication API Tests", () => {
       data: { username: API_USERNAME, password: API_PASSWORD },
     });
 
-    console.log("Response status:", response.status());
+    console.log("Response status:", response.statusText());
     expect(response.status(), "Valid credentials should return HTTP 201").toBe(201);
     const responseBody: { token?: unknown } = await response.json();
     expect(typeof responseBody.token, "The response token should be a string").toBe("string");
