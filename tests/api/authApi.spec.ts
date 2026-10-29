@@ -11,6 +11,7 @@ test.describe("FakeStore Authentication API Tests", () => {
     expect(API_PASSWORD, "API_PASSWORD must be configured in .env").toBeTruthy();
     
     console.log("Testing login with username:", API_USERNAME);
+    console.log("Testing login with password:", API_PASSWORD);
     const response = await request.post(`${API_BASE_URL}${Routes.AUTH_LOGIN}`, {
       data: { username: API_USERNAME, password: API_PASSWORD },
     });
