@@ -1,7 +1,7 @@
+import process from 'node:process';
 
 export const Routes = {
-
-    BASE_URL: 'https://fakestoreapi.com',
+    BASE_URL: process.env.API_BASE_URL || 'https://fakestoreapi.com',
 
     // =========================
     // Product Routes
@@ -48,5 +48,4 @@ export const Routes = {
     // =========================
 
     AUTH_LOGIN: '/auth/login'
-}
-
+};

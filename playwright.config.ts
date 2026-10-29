@@ -1,7 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
 
-dotenv.config({ override: true });
+dotenv.config({ override: false });
 
 const baseURL = process.env.WEB_APP_URL;
 
