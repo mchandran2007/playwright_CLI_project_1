@@ -9,11 +9,13 @@ test.describe("FakeStore Authentication API Tests", () => {
   test("POST - Successful login @master @sanity @api", async ({ request }) => {
     expect(API_USERNAME, "API_USERNAME must be configured in .env").toBeTruthy();
     expect(API_PASSWORD, "API_PASSWORD must be configured in .env").toBeTruthy();
-
+    
+    console.log("Testing login with username:", API_USERNAME);
     const response = await request.post(`${API_BASE_URL}${Routes.AUTH_LOGIN}`, {
       data: { username: API_USERNAME, password: API_PASSWORD },
     });
 
+    console.log("Response status:", response.status());
     expect(response.status(), "Valid credentials should return HTTP 201").toBe(201);
     const responseBody: { token?: unknown } = await response.json();
     expect(typeof responseBody.token, "The response token should be a string").toBe("string");
